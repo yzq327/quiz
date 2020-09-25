@@ -1,0 +1,55 @@
+
+.market {    
+  font-size: 1em;
+  background-color: gray;
+  width: 100%; 
+  padding: 20px;
+  
+}
+.arow {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+ 
+}
+.cardOne {
+    width: 20%;
+    border: none;    
+}
+.cardTitle {
+    font-size: 25px;   
+    padding: 15px 0;
+    margin-left: 20px;;
+  }
+  .productImg {
+    width: 20%;
+ 
+  }
+  .myBottom {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .money {
+    font-size: 13px;   
+    width: 50%;    
+  }
+  .addBtn {
+    font-size: 12px;
+    width: 70%;
+    padding:4px;
+    float: right;
+    background-color:#0066FF ;
+    border: none;
+    color: white;
+  }    
+  footer{
+    clear: both;
+    text-align: center;
+    background-color: #888888;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-top: 20px;
+
+}

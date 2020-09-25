@@ -1,0 +1,51 @@
+body{
+    background-color: #ffffff; 
+}
+.myForm{
+    background-color:#DDDDDD;
+    padding: 30px;    
+    width: 95%;   
+    margin-left: 20Px;
+    margin-right: 40Px;
+    margin-bottom: 20px;
+} 
+
+    .baseicLabe {
+        display:block;
+        font-size: 0.8em;
+        color: #666666;
+        font-weight: bolder;                 
+    }    
+    .imputName {        
+        width:95%;
+        height: 25px;
+        margin-top: 10px;   
+        margin-bottom: 10px;
+        border-color:#DDDDDD;
+    }
+    .imputName::-webkit-input-placeholder {
+        color: #AAAAAA;
+        padding: 10px;
+        font-size: 0.8em;        
+    }
+    .submit {
+        display:block;
+        border: none;         
+        background-color:#5599FF;
+        width:50px;
+        height: 35px;        
+        margin-top: 5px;
+        color: #ffffff;
+        font-size: 0.8em;   
+    }
+
+    .isNeccessary {
+        color:#ff3333;
+    }
+    footer{
+        clear: both;
+        text-align: center;
+        background-color: #888888;
+        padding-top:50px;
+        padding-bottom:50px;
+    }
