@@ -1,5 +1,7 @@
 package com.twuc.shopping.service;
 
+import antlr.collections.List;
+import com.twuc.shopping.po.ProductPo;
 import com.twuc.shopping.repository.ProductRepository;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
@@ -12,12 +14,13 @@ public class ProductService {
         this.productRepository = productRepository;
 
     }
-    public void find(int id){
-        productRepository.findById(id);
+    public List<ProductPo> find(int id){
+        productRepository.findAll();
     }
 
     public void delete(int id){
         productRepository.deleteById(id);
     }
+
 
 }

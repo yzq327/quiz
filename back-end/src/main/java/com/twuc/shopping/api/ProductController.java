@@ -16,13 +16,13 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+
     @CrossOrigin
     @GetMapping("/products")
-    public ResponseEntity  <List<ProductPo>> getList{
-        productService.find();
-        //List<ProductPo> users =productService.findAll();
-        return ResponseEntity.ok(users);
+    public ResponseEntity<List<ProductPo>> getList{        
+        return ResponseEntity.ok(productService.find());
     }
+
     @CrossOrigin
     @DeleteMapping("/user/{id}")
     public ResponseEntity deleteUser(@PathVariable int id)  {
