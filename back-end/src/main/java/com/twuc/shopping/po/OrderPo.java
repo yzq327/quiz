@@ -1,5 +1,6 @@
 package com.twuc.shopping.po;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,15 +8,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity
-@Table(name = "products")
+@Table(name = "orders")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProductPo {
+public class OrderPo {
     @Id
     @GeneratedValue
     private  int id;
@@ -24,10 +24,10 @@ public class ProductPo {
 
     private int price;
 
+    private int amount;
+
     private String unit;
 
-    private String Img;
-
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "productPO")
-    private List<OrderPo> orderPOs;
+    @ManyToOne
+    private ProductPo productPO;
 }
