@@ -52,23 +52,23 @@ export default class Order extends Component{
         }); 
     }
 
-    deleteOrder(id){
-        fetch('http://localhost:8080/order/' + id, {
-            method: 'DELETE',
-            // headers: {
-            //     'Content-Type': 'application/json'
-            // }
-            headers: myHeaders,
-            mode: 'no-cors',
-        }).then(response => response.json())
-            .then(result => {
-                alert("删除成功");
-            })
-            .catch(result => {
-                alert("订单删除失败，请稍后再试");
-                console.log(result);
-            }) 
-    }
+    // deleteOrder(id){
+    //     fetch('http://localhost:8080/order/' + id, {
+    //         method: 'DELETE',
+    //         // headers: {
+    //         //     'Content-Type': 'application/json'
+    //         // }
+    //         headers: myHeaders,
+    //         mode: 'no-cors',
+    //     }).then(response => response.json())
+    //         .then(result => {
+    //             alert("删除成功");
+    //         })
+    //         .catch(result => {
+    //             alert("订单删除失败，请稍后再试");
+    //             console.log(result);
+    //         }) 
+    // }
 
     render(){
         return (

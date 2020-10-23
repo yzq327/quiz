@@ -21,7 +21,7 @@ export default class Market extends Component{
              { name: '可乐5', price: '单价：1元/瓶' },
              { name: '可乐6', price: '单价：1元/瓶' },
            ],
-           orders: '',
+           orders: [],
          };
      }
 
@@ -39,74 +39,32 @@ export default class Market extends Component{
     //     });
     //  }
 
-     componentWillMount() {
+     componentDidMount() {
         fetch(`http://localhost:8080/products`, {
             method: 'GET',
-        })
-        // .then(response => {
-        //     console.log('response.json():', response.json())
-        // })
-        .then((res) => res.json())   
+        }).then((res) => res.json())   
         .then((json) => {
-            console.log('response.json():', json)
-            alert("添加成功");
-                // this.setState({
-                //     orders: json,
-                // })
+            this.setState({
+                orders: json
+            })
+            console.log("json:", json)
+            console.log("orders:",this.state.orders)
         })
         .catch(result => {
             alert("获取失败");
         })
-        // let orders = await (await fetch(`http://localhost:8080/orders`)).json();
-        // this.setState({
-        //     orders:orders
-        // });
-        // console.log(orders)
     }
-
-    // async componentDidMount() {
-    //     let orders = await (await fetch(`http://localhost:8080/order/list`)).json();//主要是从后台拿json数据
-    //     this.setState({
-    //         orders:orders
-    //     });
-    //   }
-
-    // handler(key) {
-    //     fetch(`http://localhost:8080/orders`, {
-    //         method: 'GET',
-    //     }).then(response => response.json())
-    //         .then(result => {
-    //             alert("添加成功");
-    //             console.log(result)
-    //         })
-    //         .catch(result => {
-    //             console.log(result)
-    //         })
-    // }
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         data: {},
-    //     };
-    // }
-
-    // componentDidMount() {
-    //     fetch(url).then((response) => response.json())
-    //         .then((result) => {
-    //             this.setState({
-    //                 data: result
-    //             });
-    //         });
-    // }
 
     render(){
         return (
             <body>
                 
-              <div className='market'>    
-                <div className="arow">
-                    <p>{this.state.orders}</p>
-                    <div className="cardOne">
+              <div className='market'>   
+                {/* <p>{this.state.orders}</p>  */}
+              </div> 
+                {/* <div className="arow">
+                    {/* */}
+                    {/* <div className="cardOne">
                         <img src={imgUrl} className="productImg"></img>
                         <p className="cardTitle">{this.state.products[0].name}</p>
                         <p className="money">{this.state.products[0].price}</p>
@@ -152,8 +110,8 @@ export default class Market extends Component{
                             </button>
                         </div>
                     </div>          
-                </div> 
-                <div className="arow">
+                </div>  */} 
+                {/* <div className="arow">
                     
                     <div className="cardOne">
                         <img src={imgUrl} className="productImg"></img>
@@ -169,7 +127,7 @@ export default class Market extends Component{
 
                        
                 </div>                         
-            </div>  
+            </div>   */}
             {/* <div className="shop">
                 {Object.keys(this.state.data)
                     .map((key) => (
