@@ -91,9 +91,9 @@ export default class Order extends Component{
                             <td>{item.price}</td>
                             <td>{item.amout}</td>
                             <td>{item.unit}</td>                       
-                        <td><button className='deleteButton' onClick={this.deleteOrder(item.id)}> 删除</button> </td>                            
-                </tr>
-            )}
+                            <td><button className='deleteButton' onClick={this.deleteOrder(item.id)}> 删除</button> </td>                            
+                        </tr>
+                    )}
                     {/* {Object.keys(this.state.order)
                         .map((key) => (
                             <tr key={key} className = 'tbodytr'>
