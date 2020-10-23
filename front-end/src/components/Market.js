@@ -59,9 +59,9 @@ export default class Market extends Component{
                                 </div>
                         ))}
                     </div> 
-                    <div className = 'trolley'>
-                        <img src={trolley} className="trolley"/>
-                        <button>添加购物车</button>                                                         
+                    <div className = 'trolley-show'>
+                        <div><img src={trolley} className="trolley"/></div>
+                        <button className="add-trolley">添加购物车</button>                                                         
                     </div>
                     
                 </div>   
