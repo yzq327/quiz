@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -26,11 +27,6 @@ public class OrderController {
     @Autowired
     ProductService productService;
 
-//    @DeleteMapping("/orders/{id}")
-//    public ResponseEntity deleteOrder(@PathVariable int id)  {
-//        orderService.delete(id);
-//        return ResponseEntity.created(null).build();
-//    }
     @PostMapping("/order/{id}")
     public ResponseEntity addOrder(@PathVariable int id,
                                    @RequestBody @Valid Order order) {
@@ -54,6 +50,9 @@ public class OrderController {
     public List<OrderPo>  getOrders() {
         List<OrderPo> orderPos = orderService.findAll();
         List<OrderVo> orderVos = orderPos.stream().map(this::getOrderVo).collect(Collectors.toList());
+        OrderVo orderVo = OrderVo.builder().id(1).name("11").amount(1).price(1).unit("2").build();
+        List<OrderVo>  orderPoshh = new ArrayList<>();
+        orderPoshh.add(orderVo);
         return orderPos;
 
     }

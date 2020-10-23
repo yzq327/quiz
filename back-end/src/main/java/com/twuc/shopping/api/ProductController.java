@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,10 +21,6 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
-
-    @Autowired
-    ProductPo productPo;
-
     @PostMapping("/product")
     public  ResponseEntity addProducts(@RequestBody  @Valid Product product){
         ProductPo productPo = productService.save(product);
@@ -38,14 +35,20 @@ public class ProductController {
                 .build();
     }
 
+//    @GetMapping("/products")
+//    public List<ProductVo> getProducts(){
+//        List<ProductPo> productPos = productService.findAll();
+//        List<ProductVo> productVos = productPos.stream().map(this::getProductVo).collect(Collectors.toList());
+//        return productVos;
+//    }
     @GetMapping("/products")
-    public List<ProductPo> getProducts(){
+    public List<ProductVo> getProducts(){
         List<ProductPo> productPos = productService.findAll();
         List<ProductVo> productVos = productPos.stream().map(this::getProductVo).collect(Collectors.toList());
-        return productPos;
+        ProductVo productVo = ProductVo.builder().id(1).name("te").price(12).Img("ds").unit("kg").build();
+        List<ProductVo> productVos1 = new ArrayList<>();
+        productVos1.add(productVo);
+        return productVos1;
     }
-
-
-
 
 }

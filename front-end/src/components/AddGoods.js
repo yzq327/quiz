@@ -1,16 +1,37 @@
 import React, { Component } from 'react';
 import '../styles/AddGoods.css'
-
-
+const url = 'http://localhost:8080/product';
+let myHeaders = new Headers({
+    'Access-Control-Allow-Origin':'*',
+    'Content-Type': 'text/plain'
+});
 
 export default class AddGoods extends Component{
     state = {
         name:'',
         price:'',
         unit:'',
-        Img:''
+        Img:'',
+        prdulct: {
+            name:'',
+            price:'',
+            unit:'',
+             Img:''
+        }
     }
-
+    // componentWillMount(){        
+    //     fetch(url, {
+    //         method:"POST",
+    //         headers: myHeaders,
+    //         mode: 'cors',
+    //     })
+    //     .then((res) => res.json())
+    //     .then((json) => {
+    //         this.setState({
+    //             users: json,
+    //         })
+    //     });
+    //  }
     handleChange = (event) => {   
         this.setState({      
           [event.target.name]: event.target.value
@@ -18,8 +39,19 @@ export default class AddGoods extends Component{
     }
     
     handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(JSON.stringify(this.state));
+
+        fetch(`http://localhost:8080/product/`, {
+            method: 'POST',
+        }).then(response => response.json())
+            .then(result => {
+                alert("添加成功");
+                console.log(result)
+            })
+        .catch(result => {
+                alert("添加失败");
+                console.log(result)
+        })
+
     }
 
     render(){
@@ -48,7 +80,7 @@ export default class AddGoods extends Component{
                     value={this.state.Img} placeholder="URL"/>  
                 <input className='submit' type='submit' value='提 交' 
                   disabled={!this.state.name || !this.state.price 
-                  || !this.state.unit || !this.state.Img}/>                                              
+                  || !this.state.unit || !this.state.Img} onclick={this.handleSubmit}/>                                       
             </form> 
              <footer>
              TW Mall @2018 Created by ForCheng

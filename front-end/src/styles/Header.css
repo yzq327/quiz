@@ -31,10 +31,5 @@ a:hover{
 }
 a:active{text-decoration:none;/* 指正在bai点的链接*/ 
     color:#ffffff ;}
-footer{
-    clear: both;
-    text-align: center;
-    background-color: #DDDDDD;
-    padding-top:50px;
-    padding-bottom:50px;
-}
+
+ 

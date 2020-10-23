@@ -15,8 +15,7 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="app">
-          <div className='header'>             
-                
+          <div className='header'>                        
                 <botton className='hdeaderInfo'>
                     <Link to='/'>商城</Link>
                 </botton>

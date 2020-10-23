@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import imgUrl from '../assets/timg.jpg';
-const URL = 'jdbc:mysql://localhost:3306/products';
+import '../styles/Market.css'
 
-
+const url = 'http://localhost:8080/products';
+let myHeaders = new Headers({
+    'Access-Control-Allow-Origin':'*',
+    'Content-Type': 'text/plain'
+});
 
 export default class Market extends Component{   
      constructor() {
@@ -17,30 +21,91 @@ export default class Market extends Component{
              { name: '可乐5', price: '单价：1元/瓶' },
              { name: '可乐6', price: '单价：1元/瓶' },
            ],
+           orders: '',
          };
      }
 
-    // componentDidMount() {
-    //     async function fetchDate(url) {
-    //       const response = await fetch(url).then((response) => response.json());
-    //       return response;
-    //     }
-    //     fetchDate(URL)
-    //       .then((response) => {
+    //  componentWillMount(){        
+    //     fetch(url, {
+    //         method:"POST",
+    //         headers: myHeaders,
+    //         mode: 'cors',
+    //     })
+    //     .then((res) => res.json())
+    //     .then((json) => {
     //         this.setState({
-    //           products: response,
+    //             products: json,
+    //         })
+    //     });
+    //  }
+
+     componentWillMount() {
+        fetch(`http://localhost:8080/products`, {
+            method: 'GET',
+        })
+        // .then(response => {
+        //     console.log('response.json():', response.json())
+        // })
+        .then((res) => res.json())   
+        .then((json) => {
+            console.log('response.json():', json)
+            alert("添加成功");
+                // this.setState({
+                //     orders: json,
+                // })
+        })
+        .catch(result => {
+            alert("获取失败");
+        })
+        // let orders = await (await fetch(`http://localhost:8080/orders`)).json();
+        // this.setState({
+        //     orders:orders
+        // });
+        // console.log(orders)
+    }
+
+    // async componentDidMount() {
+    //     let orders = await (await fetch(`http://localhost:8080/order/list`)).json();//主要是从后台拿json数据
+    //     this.setState({
+    //         orders:orders
+    //     });
+    //   }
+
+    // handler(key) {
+    //     fetch(`http://localhost:8080/orders`, {
+    //         method: 'GET',
+    //     }).then(response => response.json())
+    //         .then(result => {
+    //             alert("添加成功");
+    //             console.log(result)
+    //         })
+    //         .catch(result => {
+    //             console.log(result)
+    //         })
+    // }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         data: {},
+    //     };
+    // }
+
+    // componentDidMount() {
+    //     fetch(url).then((response) => response.json())
+    //         .then((result) => {
+    //             this.setState({
+    //                 data: result
+    //             });
     //         });
-    //       })
-    //       .catch((error) => {
-    //         console.log(error);
-    //       });
     // }
 
     render(){
         return (
             <body>
-            <div className='market'>    
+                
+              <div className='market'>    
                 <div className="arow">
+                    <p>{this.state.orders}</p>
                     <div className="cardOne">
                         <img src={imgUrl} className="productImg"></img>
                         <p className="cardTitle">{this.state.products[0].name}</p>
@@ -51,7 +116,9 @@ export default class Market extends Component{
                              add
                             </button>
                         </div>
+                  
                     </div>
+
                     <div className="cardOne">
                         <img src={imgUrl} className="productImg"></img>
                         <p className="cardTitle">{this.state.products[1].name}</p>
@@ -85,11 +152,50 @@ export default class Market extends Component{
                             </button>
                         </div>
                     </div>          
-                </div>                              
+                </div> 
+                <div className="arow">
+                    
+                    <div className="cardOne">
+                        <img src={imgUrl} className="productImg"></img>
+                        <p className="cardTitle">{this.state.products[0].name}</p>
+                        <p className="money">{this.state.products[0].price}</p>
+                        <div className=" myBottom">
+                            <span >{           }</span>
+                            <button className="addBtn" onClick={this.props.buy}>
+                             add
+                            </button>
+                        </div>                      
+                    </div>
+
+                       
+                </div>                         
             </div>  
-         <footer>
-            ThoughtWorks University China
-          </footer>  
+            {/* <div className="shop">
+                {Object.keys(this.state.data)
+                    .map((key) => (
+                        <div key={key} style={{
+                            border: 'solid #ededed',
+                            width: '150px',
+                            height: '250px',
+                            margin: '30px',
+                            float: 'left'
+                        }}>
+                            <img src={this.state.data[key].url} alt="cola"/>
+                            <h3>{this.state.data[key].name}</h3>
+                            <p>单价：{this.state.data[key].price}/{this.state.data[key].unit}</p>
+                            <button
+                                className="btn btn-success m-2"
+                                style={{width:'30px',height:'30px',borderRadius:'50%',border:'none'}}
+                                onClick={() => this.handler(key)}
+                            >+
+                            </button>
+                        </div>
+                    ))}
+
+            </div> */}
+            <footer>
+                TW Mall @2018 Created by ForCheng
+            </footer>  
           </body>          
         );
     }

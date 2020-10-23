@@ -10,11 +10,11 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "products")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "products")
 public class ProductPo {
     @Id
     @GeneratedValue
@@ -28,6 +28,7 @@ public class ProductPo {
 
     private String Img;
 
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "productPO")
-    private List<OrderPo> orderPOs;
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH},optional=false)
+    private OrderPo orderPo;
+
 }

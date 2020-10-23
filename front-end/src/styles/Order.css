@@ -1,0 +1,32 @@
+.order{    
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: center;
+    font-size: 20px;   
+}
+.table{
+    width: 98%;
+}
+.tablehead{
+    background-color: #DDDDDD;
+    height: 60px;
+}
+.tbodytr{
+
+    height: 60px;
+}
+.deleteButton {
+    color: red;
+    font-size: 20px;   
+    height: 40px;
+  
+    width: 80px;
+}
+
+footer{
+    clear: both;
+    text-align: center;
+    background-color: #dddddd;
+    padding-top:50px;
+    padding-bottom:50px;
+  }

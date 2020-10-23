@@ -36,7 +36,7 @@ public class OrderService {
                     .price(order.getPrice())
                     .unit(order.getUnit())
                     .amount(order.getAmount())
-                    .productPO(productPo).build();
+                    .build();
         }
         orderRepository.save(orderPo);
         return orderPo;
