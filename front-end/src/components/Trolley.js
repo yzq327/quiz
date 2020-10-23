@@ -1,13 +1,30 @@
 import React, {Component} from 'react'
-import styles from '../styles/Order.css'
+import styles from '../styles/Trolley.css'
 
 
-class Modal extends Component {
+class Trolley extends Component {
  
   render() {
     return (
-        <div></div>
-    )
+      <p styleName="modalComtent">
+        <section className="row">
+            <p styleName="label">商品:</p>
+            <p styleName="text">数量</p>
+        </section>
+        <section className="row">
+            <p styleName="label">可乐</p>
+            <p styleName="text">1</p>
+            <p styleName="text">删除</p>
+        </section>
+        <section className="row">
+            <p styleName="label">雪碧</p>
+            <p styleName="text">2</p>
+            <p styleName="text">删除</p>
+        </section>
+      </p>
+    
+    
+        )
     //     <div styleName="modalComtent">
     //     <section className="row">
     //         <p styleName="label">商品:</p>
@@ -35,4 +52,4 @@ class Modal extends Component {
   }
 }
 
-export default Modal
+export default Trolley

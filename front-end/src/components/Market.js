@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Modal from './Modal';
+import Trolley from './Trolley';
 import imgUrl from '../assets/timg.jpg';
 import trolley from '../assets/trolley.jpg';
 import '../styles/Market.css'
@@ -8,7 +8,7 @@ import '../styles/Market.css'
 export default class Market extends Component{   
     state = {
         products: [],
-        modalVisible: false
+        trolleyVisible: false
     };
 
     componentDidMount() {
@@ -29,12 +29,17 @@ export default class Market extends Component{
             modalVisible: false,
         })
     }
-    showModal = () => {
+    showTrolley = () => {
         this.setState({
-            modalVisible: true,
+            trolleyVisible: true,
         })
     }
 
+    dispalyTrolleyInfo = (trolleyVisible) => {
+        if(trolleyVisible) {
+            return (<Trolley/>);
+        }        
+    }
     render(){
         var imgObjs = document.getElementsByTagName("img");
         imgObjs.onclick = function () {
@@ -60,8 +65,8 @@ export default class Market extends Component{
                         ))}
                     </div> 
                     <div className = 'trolley-show'>
-                        <div><img src={trolley} className="trolley"/></div>
-                        <button className="add-trolley">添加购物车</button>                                                         
+                        {this.dispalyTrolleyInfo(this.state.trolleyVisible)} 
+                        <div><img src={trolley} className="trolley" onClick={this.showTrolley} /></div>                                                                     
                     </div>
                     
                 </div>   
