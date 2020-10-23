@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Modal from './Modal';
 import imgUrl from '../assets/timg.jpg';
+import trolley from '../assets/trolley.jpg';
 import '../styles/Market.css'
 
 export default class Market extends Component{   
     state = {
         products: [],
+        modalVisible: false
     };
 
-     componentWillMount() {
+    componentDidMount() {
         fetch(`http://localhost:8080/products`, {
             method: 'GET',
         }).then((res) => res.json())   
@@ -21,10 +24,24 @@ export default class Market extends Component{
             alert("获取失败");
         })
     }
+    hideModal = () => {
+        this.setState({
+            modalVisible: false,
+        })
+    }
+    showModal = () => {
+        this.setState({
+            modalVisible: true,
+        })
+    }
 
     render(){
-        console.log("ordershhh:",this.state.products)
+        var imgObjs = document.getElementsByTagName("img");
+        imgObjs.onclick = function () {
+            alert("HTML中文网");
+          };
         return (
+            
             <body>              
                 <div className='market'>   
                     <div className="arow">
@@ -42,6 +59,11 @@ export default class Market extends Component{
                                 </div>
                         ))}
                     </div> 
+                    <div className = 'trolley'>
+                        <img src={trolley} className="trolley"/>
+                        <button>添加购物车</button>                                                         
+                    </div>
+                    
                 </div>   
                 <footer>
                     TW Mall @2018 Created by ForCheng

@@ -9,17 +9,32 @@
 }
 .tablehead{
     background-color: #DDDDDD;
-    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 20px; 
+}
+.order-id{
+    margin-top: 10px
+}
+.delete-id{
+    color: #ffffff;
+    background: #DC3545;
+    padding: 10px;
+}
+.delete-id{
+    font-weight: bolder;
 }
 .tbodytr{
-
     height: 60px;
+}
+.order-head{
+    font-weight: bolder;
 }
 .deleteButton {
     color: red;
     font-size: 20px;   
     height: 40px;
-  
     width: 80px;
 }
 

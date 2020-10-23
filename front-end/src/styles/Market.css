@@ -3,8 +3,7 @@
   font-size: 1em;
   background-color: ffffff;
   width: 100%; 
-  padding: 20px;
-  
+  padding: 20px; 
 }
 .arow {
   
@@ -78,4 +77,10 @@ footer{
   background-color: #dddddd;
   padding-top:50px;
   padding-bottom:50px;
+}
+
+.trolley{
+  height: 67px;
+  text-align: right;
+  margin-right: 10px
 }

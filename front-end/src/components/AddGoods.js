@@ -75,7 +75,7 @@ export default class AddGoods extends Component{
                         value={this.state.Img} placeholder="URL"/>  
                     <input className='submit' type='submit' value='提 交' 
                     disabled={!this.state.name || !this.state.price 
-                    || !this.state.unit || !this.state.Img} />                                       
+                    || !this.state.unit || !this.state.Img || isNaN(Number(this.state.price))} />                                       
                 </form> 
                 <footer>
                      TW Mall @2018 Created by ForCheng
